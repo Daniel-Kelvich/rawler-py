@@ -1,0 +1,13 @@
+[package]
+name = "rawler-py"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "rawler_py"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.28.3", features = ["extension-module"] }
+rawler = "=0.7.2"
+numpy = "0.28"
