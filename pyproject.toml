@@ -5,6 +5,9 @@ build-backend = "maturin"
 [project]
 name = "rawler-py"
 requires-python = ">=3.8"
+description = "Python bindings for the rawler RAW image processing library"
+authors = [{ name = "Daniel Kelvich" }]
+license = "LGPL-2.1"
 classifiers = [
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
