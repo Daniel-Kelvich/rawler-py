@@ -17,32 +17,6 @@ permissions:
   contents: read
 
 jobs:
-  windows:
-    runs-on: ${{ matrix.platform.runner }}
-    strategy:
-      matrix:
-        platform:
-          - runner: windows-latest
-            target: x64
-            python_arch: x64
-    steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.13"
-          architecture: ${{ matrix.platform.python_arch }}
-      - name: Build wheels
-        uses: PyO3/maturin-action@v1
-        with:
-          target: ${{ matrix.platform.target }}
-          args: --release --out dist --find-interpreter
-          sccache: true
-      - name: Upload wheels
-        uses: actions/upload-artifact@v6
-        with:
-          name: wheels-windows-${{ matrix.platform.target }}
-          path: dist
-
   macos:
     runs-on: ${{ matrix.platform.runner }}
     strategy:
@@ -86,7 +60,7 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'workflow_dispatch' }}
-    needs: [windows, macos, sdist]
+    needs: [macos, sdist]
     permissions:
       # Use to sign the release artifacts
       id-token: write

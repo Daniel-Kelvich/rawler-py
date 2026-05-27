@@ -8,9 +8,13 @@ requires-python = ">=3.8"
 description = "Python bindings for the rawler RAW image processing library"
 authors = [{ name = "Daniel Kelvich" }]
 license = "LGPL-2.1"
+dependencies = ["numpy"]
 classifiers = [
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dynamic = ["version"]
+
+[tool.maturin]
+include = [{ path = "rawler_py.pyi", format = "wheel" }]
