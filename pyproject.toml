@@ -6,15 +6,23 @@ build-backend = "maturin"
 name = "rawler-py"
 requires-python = ">=3.8"
 description = "Python bindings for the rawler RAW image processing library"
-authors = [{ name = "Daniel Kelvich" }]
+readme = "README.md"
+authors = [{ name = "Danylo Kelvich", email = "danylo.kelvich@gmail.com" }]
 license = "LGPL-2.1"
+keywords = ["raw", "photography", "image-processing", "rust"]
 dependencies = ["numpy"]
 classifiers = [
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
+    "License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)",
 ]
 dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/danylo-kelvich/rawler-py"
+Repository = "https://github.com/danylo-kelvich/rawler-py.git"
+Issues = "https://github.com/danylo-kelvich/rawler-py/issues"
 
 [tool.maturin]
 include = [{ path = "rawler_py.pyi", format = "wheel" }]
